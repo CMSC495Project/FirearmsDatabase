@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="CMSC495_Layout.css">
+    <script src="CMSC495_JavaScript.js"></script>
+    <title>Firearm Registry</title>
+</head>
+<body>
+    <div class="w3-display-container">
+        <img src="banner-flag-us.png" class="w3-image" style="width: 100%">
+        <div class="w3-display-middle w3-center ">
+            <h1 style="font-size: 3em">Voluntary Firearm Registration</h1>
+            <h2 style="font-size: 2em">Providing a visualization of voluntarily registered firearms in your area.</h2>
+        </div>
+    </div>
+
+    <div class="w3-bar">
+        <a href="CMSC495_Home.html" class="w3-bar-item">Home</a>
+        <a href="CMSC495_Registration.html" class="w3-bar-item">Registration</a>
+        <a class="w3-bar-item" onclick="overlayOn()">About</a>
+        <a class="w3-bar-item" id="login">Login</a>
+    </div>
+    
+    <div class="w3-display-container" style="height: 90em" id="regMain">
+        <div class="w3-display-container" id="regContent">
+            <h1 style="font-size: 1.5em; text-align:">* Required Field</h1>
+            <form>
+                <label for="fname">Name</label>
+                <input type="text" id="fName" name="fName" placeholder="First name" style="width: 30%">
+                <input type="text" id="mInitial" placeholder="M.I." style="width: 40px">
+                <input type="text" id="lName" placeholder="Last Name" style="width: 40%">
+            </form>
+            <form>
+                <label for="address">Address</label>
+                <input type="text" id="address1" name="address1" placeholder="Address Line 1">
+            </form>
+            <form>
+                <input type="text" id="address2" placeholder="Address Line 2">
+            </form>
+            <form>
+                <input type="text" id="address3" placeholder="Address Line 3">
+            </form>
+            <form>
+                <input type="text" id="city" placeholder="City" style="width: 30%">
+                <input type="text" id="state" placeholder="ST" style="width: 40px">
+                <input type="text" id="zipcode" placeholder="Zip Code" style="width: 40%">
+            </form>
+            <label for="firearmInfo" style="float: inherit">Firearm Information</label>
+            <div class="dropdown">
+                <button class="dropbtn" id="firearmTypeBtn" style="width: 300px" onclick="firearmTypes()">Firearm Type</button>
+                <div class="dropdown-content" id="firearmTypes">
+                    <a onclick="setFirearmType('Rifle')">Rifle</a>
+                    <a onclick="setFirearmType('Shotgun')">Shotgun</a>
+                    <a onclick="setFirearmType('Handgun')">Handgun</a>
+                    <a onclick="setFirearmType('Other')">Other</a>
+                </div>
+            </div> 
+            <div class="dropdown"> 
+                <button class="dropbtn" id="quantityBtn" style="width: 142px" onclick="quantityChoice()">Quantity</button>
+                <div class="dropdown-content" id="quantity">
+                    <a onclick="setQuantity(0)">0</a>
+                    <a onclick="setQuantity(1)">1</a>
+                    <a onclick="setQuantity(2)">2</a>
+                    <a onclick="setQuantity(3)">3</a>
+                    <a onclick="setQuantity(4)">4</a>
+                    <a onclick="setQuantity(5)">5</a>
+                    <a onclick="setQuantity(6)">6+</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="w3-display-container" id="footer">        
+    </div>
+    
+    <div id="aboutOverlay" onclick="overlayOff()">
+        <div id="about">
+            <div class="w3-display-container" id="aboutBox">
+                <p>Some Stuff About Us</p>
+            </div>
+        </div>
+    </div>    
+</footer>
+</html>

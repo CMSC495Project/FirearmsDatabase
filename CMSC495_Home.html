@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="CMSC495_Layout.css">
+    <script src="CMSC495_JavaScript.js"></script>
+    <title>Firearm Registry</title>
+</head>
+<body>
+    <div class="w3-display-container">
+        <img src="banner-flag-us.png" class="w3-image" style="width: 100%">
+        <div class="w3-display-middle w3-center ">
+            <h1 style="font-size: 3em">Voluntary Firearm Registration</h1>
+            <h2 style="font-size: 2em">Providing a visualization of voluntarily registered firearms in your area.</h2>
+        </div>
+    </div>
+
+    <div class="w3-bar">
+        <a href="CMSC495_Home.html" class="w3-bar-item">Home</a>
+        <a href="CMSC495_Registration.html" class="w3-bar-item">Registration</a>
+        <a class="w3-bar-item" onclick="overlayOn()">About</a>
+        <a class="w3-bar-item" id="login">Login</a>
+    </div>
+
+    <div class="w3-display-container" id="main" style="height: 90em">
+        <h3>Search Registered Firearms in Your Area</h3>
+        <div class="w3-display-topmiddle">
+            <div class="searchBar">
+                <input id="zip" type="textbox" placeholder="Search in Zipcode ...">
+                <input id="search" type="button" value="Search">
+            </div>
+        </div>
+        <div class="w3-display-middle" style="width:80em">
+            <div id="map" style="width: 100%;height: 50em;"></div>
+                <script onload="initMap()"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6CkAuPApPgoSSMDaRrTELah_4Bcv05hI&callback=initMap"></script>
+        </div>
+    </div>
+</body>
+    
+<footer>
+    <div class="w3-display-container" id="footer">        
+        <div class="w3-row">
+            <div class="chip"></div>
+            
+        </div> 
+    </div>
+    
+    <div id="aboutOverlay" onclick="overlayOff()">
+        <div id="about">
+            <div class="w3-display-container" id="aboutBox">
+                <p>Some Stuff About Us</p>
+            </div>
+        </div>
+    </div>    
+</footer>
+</html>
