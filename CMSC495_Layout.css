@@ -10,14 +10,6 @@ h1, h2 {
     font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
 }
 
-label {
-    position: relative;
-    left: -10px;
-    float: left;
-    width: 150px;
-    text-align: right;
-}
-
 /* ======== Home Page ======== */
 
 .w3-bar {
@@ -57,7 +49,7 @@ a {text-decoration: none;}
 
 .searchBar #zip, #search {height: 3em;}
 
-.searchBar input[type=text] {border: none;}
+.searchBar > input[type=text] {border: none;}
 
 
 #map {
@@ -70,8 +62,18 @@ a {text-decoration: none;}
 
 #regContent {
     position: relative;
-    left: 200px;
     top: 200px;
+    width: 80%;
+    max-width: 100em;
+    margin: auto;
+}
+
+#regContent label {
+    position: relative;
+    left: -10px;
+    float: left;
+    width: 150px;
+    text-align: right;
 }
 
 #fName, #mInitial, #lName {
@@ -131,7 +133,7 @@ a {text-decoration: none;}
 }
 
 /* Contents after dropdown */
-.dropdown-content a {
+.dropdown-content > a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -144,37 +146,150 @@ a {text-decoration: none;}
 /* Show the dropdown menu */
 .show {display:block;} 
 
-/* ======== Footer, Login, and About Overlays ======= */
-#footer {
+/* ======== Footer ======= */
+
+.footer {
+    display: grid;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 75%;
     height: 10em;
-    margin: 1vw 1vw 1vw 20vw;
 }
 
-#aboutOverlay {
-    position: fixed;
-    display: none;
-    width: 100%;
+.footer h2 {
+    font-size: 1.6em;
+    grid-row-start: 2;}
+
+.footer p {
+    margin-top: auto;
+    margin-bottom: 90px;
+    font-size: 1.2em;
+    color: white;
+}
+
+/* ======== Overlays for Login, Signup, About ======== */ 
+
+#about{
+    margin: 10% auto;
+    font-size: 50px;
+    color: black;
+    width: 15em;
+    height: 10em;
+    background-color: whitesmoke;
+    box-shadow: 0px 8px 16px 0px darkgrey;
+   
+}
+
+.loginContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.loginContainer label, input, button {
+    grid-column: 2/4;
+    margin-top: 5px;
+}
+
+.loginContainer button {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+}
+
+.signupContainer {
+    display: grid;
+    margin-left: 10px;
+    margin-right: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.signupLabels {
+    grid-column: 1/5;
+    padding-top: 10px
+}
+
+.signupInput {
+    grid-column: 1/5;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.signupContainer p {
+    grid-column: 1/5;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-width: 2px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.bottomButtonsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    cursor: pointer;
+    height: 4em;
+    text-align: center;
+    color: white;
+    background-color: cornflowerblue; 
+}
+
+.bottomButtonsContainer > span {
     height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    line-height: 4;
+}
+
+.bottomButtonsContainer > button {
+    background-color: cornflowerblue;
+    color: white;
+    margin: 0px;
+    border: none;
     cursor: pointer;
 }
 
-#about{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: black;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    width: 40vw;
-    height: 30vw;
-    background-color: whitesmoke;
-    box-shadow: 0px 8px 16px 0px darkgrey;
+.bottomButtonsContainer span:hover, button:hover {
+    background-color: tomato;
 }
+
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    border: 1px solid grey;
+    width: 30%; 
+    max-width: 500px;
+}
+
+/* Add Zoom Animation for Login and About*/
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}  
 
