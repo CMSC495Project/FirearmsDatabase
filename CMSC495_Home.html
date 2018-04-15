@@ -20,8 +20,8 @@
     <div class="w3-bar">
         <a href="CMSC495_Home.html" class="w3-bar-item">Home</a>
         <a href="CMSC495_Registration.html" class="w3-bar-item">Registration</a>
-        <a class="w3-bar-item" onclick="overlayOn()">About</a>
-        <a class="w3-bar-item" id="login">Login</a>
+        <a class="w3-bar-item" onclick="overlayOn('aboutOverlay')">About</a>
+        <a class="w3-bar-item" id="login" onclick="overlayOn('loginOverlay')">Login</a>
     </div>
 
     <div class="w3-display-container" id="main" style="height: 90em">
@@ -38,22 +38,69 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6CkAuPApPgoSSMDaRrTELah_4Bcv05hI&callback=initMap"></script>
         </div>
     </div>
-</body>
     
-<footer>
-    <div class="w3-display-container" id="footer">        
-        <div class="w3-row">
-            <div class="chip"></div>
-            
-        </div> 
-    </div>
-    
-    <div id="aboutOverlay" onclick="overlayOff()">
-        <div id="about">
-            <div class="w3-display-container" id="aboutBox">
+    <div class="modal" id="aboutOverlay" onclick="overlayOff('aboutOverlay')">
+        <div class="animate" id="about">
+            <div class="container" id="aboutBox">
                 <p>Some Stuff About Us</p>
             </div>
         </div>
-    </div>    
+    </div>
+    
+    <div class="modal" id="loginOverlay">
+        <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer" style="width:40%; height: 200px; margin: auto">
+            <img src="placeholderRound.png" alt="Avatar" class="avatar" style="width: 100%; padding: 20px;">
+        </div>
+            <div class="loginContainer">
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" required style="grid-row-start: 2">
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="psw" required>
+                <button type="submit">Login</button>
+            </div>
+        <div class="container bottomButtonsContainer">
+            <span><a onclick="overlayOff('loginOverlay'); 
+                overlayOn('signupOverlay')">Need an Account?</a></span>
+            <span><a href="#">Forgot password?</a></span>
+        </div>
+        </form>
+    </div> 
+    
+    <div class="modal" id="signupOverlay">
+        <form class="modal-content" action="/action_page.php">
+        <div class="signupContainer">
+            <p><b>Complete the form below to request an account</b></p>
+            <label class="signupLabels" for="email"><b>Email</b></label>
+            <input class="signupInput" type="text" placeholder="Enter Email" name="email" required>
+            <label class="signupLabels" for="psw"><b>Password</b></label>
+            <input class="signupInput" type="password" placeholder="Enter Password" name="psw" required>
+            <label class="signupLabels" for="psw-repeat"><b>Repeat Password</b></label>
+            <input class="signupInput" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+               
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms of Service</a>.</p>
+        </div>
+            
+            <div class="container bottomButtonsContainer">
+                <span><a onclick="overlayOff('signupOverlay')">Cancel</a></span>
+                <button type="submit" onclick="">Submit</button>
+            </div>
+        </form>
+    </div> 
+</body>
+<footer>
+    <div class="footer" style="text-align: center">
+        <h1 style="grid-column: 1/6; padding: 1%"> Project Contributors</h1>
+        <h2>Michael Manteuffel</h2>
+        <p>Project Manager</p>
+        <h2>Erik Faulk</h2>
+        <p>Web Developer</p>
+        <h2>Moses Daniels</h2>
+        <p>Database Developer</p>
+        <h2>Aaron Turner</h2>
+        <p>Security Analyst</p>
+        <h2>Rachel Flores</h2>
+        <p>AWS Developer</p>
+    </div>
 </footer>
 </html>
