@@ -1,9 +1,9 @@
-function overlayOn() {
-    document.getElementById("aboutOverlay").style.display = "block";
+function overlayOn(value) {
+    document.getElementById(value).style.display = "block";
 }
         
-function overlayOff() {
-    document.getElementById("aboutOverlay").style.display = "none";
+function overlayOff(value) {
+    document.getElementById(value).style.display = "none";
 }
 
 function initMap() {
@@ -63,5 +63,8 @@ window.onclick = function(event) {
         openDropdown.classList.remove('show');
       }
     }
+  }
+  if (event.target == document.getElementById('loginOverlay')) {
+      loginOverlay.style.display = "none";
   }
 } 
