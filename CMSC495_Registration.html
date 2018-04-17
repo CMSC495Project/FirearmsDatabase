@@ -31,76 +31,98 @@
     <div class="regMain">
         <div class="regContainer">
             <div class="regForm" style="grid-area: regForm">
-            <form class="regForm">
+            <form style="display: grid">
                 <h1 style="font-size: 1.5em">* Required Field</h1>
-                <label class="regLabels" for="name" style="grid-row-start:2 ">Name</label>
+                <label class="regLabels" for="name" style="grid-area: nameLabel ">Name:</label>
                 <input type="text" placeholder="First Name" style="grid-area: fname">
                 <input type="text" placeholder="M.I" style="grid-area: minitial">
                 <input type="text" placeholder="Last Name" style="grid-area: lname">
-                <label class="regLabels" for="address1" style="grid-row-start: 3">Address</label>
+                <label class="regLabels" for="address1" style="grid-area: addressLabel">Address:</label>
                 <input type="text" placeholder="Address Line 1" style="grid-area: address1">
                 <input type="text" placeholder="Address Line 2" style="grid-area: address2">
                 <input type="text" placeholder="Address Line 3" style="grid-area: address3">
                 <input type="text" placeholder="City" style="grid-area: city">
                 <input type="text" placeholder="ST" style="grid-area: state">
                 <input type="text" placeholder="Zipcode" style="grid-area: zipcode">
+                <label style="grid-area: required; font-size: 20px">*</label>
+                <label class="regLabels" style="grid-area: faLabel; margin-top: 25px">Firearm Information:</label>
+                <div class="firearmReg" style="grid-area: fainfo">
+                    <div class="dropdown" style="grid-area: faType1">
+                        <button type="button" id="firearm1Btn">Firearm Type</button>
+                        <div class="dropdown-contents">
+                            <a onclick="setFirearmType('firearm1Btn','Rifle')">Rifle</a>
+                            <a onclick="setFirearmType('firearm1Btn','Shotgun')">Shotgun</a>
+                            <a onclick="setFirearmType('firearm1Btn','Handgun')">Handgun</a>
+                            <a onclick="setFirearmType('firearm1Btn','Other')">Other</a>
+                        </div>
+                    </div>
+                    <input type="number" placeholder="Quantity" style="grid-area: quantity1;">
+                    <button type="button" onclick="addFirearm('firearm2')" 
+                            style="grid-area: addFirearm1">+
+                    </button>
+                    
+                    <div class="dropdown firearm2" style="grid-area: faType2">
+                        <button type="button" id="firearm2Btn">Firearm Type</button>
+                        <div class="dropdown-contents">
+                            <a onclick="setFirearmType('firearm2Btn','Rifle')">Rifle</a>
+                            <a onclick="setFirearmType('firearm2Btn','Shotgun')">Shotgun</a>
+                            <a onclick="setFirearmType('firearm2Btn','Handgun')">Handgun</a>
+                            <a onclick="setFirearmType('firearm2Btn','Other')">Other</a>
+                        </div>
+                    </div>
+                    <input class="firearm2" type="number" placeholder="Quantity" style="grid-area: quantity2;">
+                    <button class="firearm2" type="button" onclick="addFirearm('firearm3')"
+                            style="grid-area: addFirearm2">+
+                    </button>
+                
+                    <div class="dropdown firearm3" style="grid-area: faType3">
+                        <button type="button" id="firearm3Btn">Firearm Type</button>
+                        <div class="dropdown-contents">
+                            <a onclick="setFirearmType('firearm3Btn','Rifle')">Rifle</a>
+                            <a onclick="setFirearmType('firearm3Btn','Shotgun')">Shotgun</a>
+                            <a onclick="setFirearmType('firearm3Btn','Handgun')">Handgun</a>
+                            <a onclick="setFirearmType('firearm3Btn','Other')">Other</a>
+                        </div>
+                    </div>
+                    <input class="firearm3" type="number" placeholder="Quantity" style="grid-area: quantity3;">
+                    <button class="firearm3" type="button" onclick="addFirearm('firearm4')"
+                            style="grid-area: addFirearm3">+
+                    </button>
+                    
+                    <div class="dropdown firearm4" style="grid-area: faType4">
+                        <button type="button" id="firearm4Btn">Firearm Type</button>
+                        <div class="dropdown-contents">
+                            <a onclick="setFirearmType('firearm4Btn','Rifle')">Rifle</a>
+                            <a onclick="setFirearmType('firearm4Btn','Shotgun')">Shotgun</a>
+                            <a onclick="setFirearmType('firearm4Btn','Handgun')">Handgun</a>
+                            <a onclick="setFirearmType('firearm4Btn','Other')">Other</a>
+                        </div>
+                    </div>
+                    <input class="firearm4" type="number" placeholder="Quantity" style="grid-area: quantity4;">
+                </div>
+                
+            <label class="regLabels" style="grid-area: emailLabel; margin-top: 25px;">Email Address:</label>
+            <input type="email" placeholder="Email Address" style="grid-area: email; margin-top: 20px">
+            <label style="grid-area: reqEmail; font-size: 20px; margin-top: 20px;">*</label>
+            <button type="submit" id="submit">Submit</button>
+            <button onclick="removeFirearm()" type="reset" id="clearform">Clear Form</button>
             </form>
+                
             </div>
-            <div class="firearmInfo" style="grid-area: firearmInfo">
-                <label for="firearmType" style="grid-area: label">Firearm Information</label>
-                <div class="dropdown" style="grid-area: faInfo">
-                    <button id="firearm1" style="grid-area: faType">Firearm Type</button>
-                    <div class="dropdown-contents">
-                        <a onclick="setFirearmType('firearm1','Rifle')">Rifle</a>
-                        <a onclick="setFirearmType('firearm1','Shotgun')">Shotgun</a>
-                        <a onclick="setFirearmType('firearm1','Handgun')">Handgun</a>
-                        <a onclick="setFirearmType('firearm1','Other')">Other</a>
-                    </div>
-                    <input type="number" style="grid-area: quantity" placeholder="Quantity" required>
-                    <button style="grid-area: addFa">+</button>
+            <div class="tosContainer" style="grid-area: tos">
+                <div style="; height: 15%; width: 100%; background-color: #afceff"></div>
+                <div style="height: 375px; width: 100%; background-color: white">
+                    <h1>ToS</h1>
+                    <h2 style="color: black; text-align: center">Verbage on how information provided will be stored in a database to be viewed by users.</h2>
                 </div>
-            </div>
-            <div class="firearmInfo" style="grid-area: firearmInfo; grid-row-start: 3">
-                 <div class="dropdown" style="grid-area: faInfo; margin-top: 5px;">
-                    <button id="firearm2" style="grid-area: faType">Firearm Type</button>
-                    <div class="dropdown-contents">
-                        <a onclick="setFirearmType('firearm2','Rifle')">Rifle</a>
-                        <a onclick="setFirearmType('firearm2','Shotgun')">Shotgun</a>
-                        <a onclick="setFirearmType('firearm2','Handgun')">Handgun</a>
-                        <a onclick="setFirearmType('firearm2','Other')">Other</a>
-                    </div>
-                    <input type="number" style="grid-area: quantity" placeholder="Quantity" required>
-                    <button style="grid-area: addFa">+</button>
-                </div>
-            </div>
-            <div class="firearmInfo" style="grid-area: firearmInfo; grid-row-start: 4">
-                 <div class="dropdown" style="grid-area: faInfo; margin-top: 5px;">
-                    <button id="firearm3" style="grid-area: faType">Firearm Type</button>
-                    <div class="dropdown-contents">
-                        <a onclick="setFirearmType('firearm3','Rifle')">Rifle</a>
-                        <a onclick="setFirearmType('firearm3','Shotgun')">Shotgun</a>
-                        <a onclick="setFirearmType('firearm3','Handgun')">Handgun</a>
-                        <a onclick="setFirearmType('firearm3','Other')">Other</a>
-                    </div>
-                    <input type="number" style="grid-area: quantity" placeholder="Quantity" required>
-                    <button style="grid-area: addFa">+</button>
-                </div>
-            </div>
-            <div class="firearmInfo" style="grid-area: firearmInfo; grid-row-start: 5">
-                 <div class="dropdown" style="grid-area: faInfo; margin-top: 5px;">
-                    <button id="firearm4" style="grid-area: faType">Firearm Type</button>
-                    <div class="dropdown-contents">
-                        <a onclick="setFirearmType('firearm4','Rifle')">Rifle</a>
-                        <a onclick="setFirearmType('firearm4','Shotgun')">Shotgun</a>
-                        <a onclick="setFirearmType('firearm4','Handgun')">Handgun</a>
-                        <a onclick="setFirearmType('firearm4','Other')">Other</a>
-                    </div>
-                    <input type="number" style="grid-area: quantity" placeholder="Quantity" required>
-                    <button style="grid-area: addFa">+</button>
+                <div style="height: 15%; width: 100%; background-color: #afceff"></div>
+                <div id="ackBox">
+                    <span><input type="checkbox"><label style="margin-left: 10px;">Acknowledge</label></span>
                 </div>
             </div>
         </div>
-
+            
+        
     </div>
 
 <! ======== Overlays for Login, Signup, and About ======== >
@@ -147,7 +169,7 @@
         </div>
             
             <div class="bottomButtonsContainer">
-                <span onclick="overlayOff('signupOverlay')"><a>Cancel</a></span>
+                <button type="button" onclick="overlayOff('signupOverlay')">Cancel</button>
                 <button type="submit" onclick="">Submit</button>
             </div>
         </form>
