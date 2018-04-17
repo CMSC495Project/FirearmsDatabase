@@ -6,6 +6,31 @@ function overlayOff(value) {
     document.getElementById(value).style.display = "none";
 }
 
+function addFirearm(additionalFirearm) {
+    var toggleFirearm = document.getElementsByClassName(additionalFirearm);
+    
+    for(var i = 0; i < toggleFirearm.length; i++) {
+        toggleFirearm[i].style.display = "block";
+    }
+}
+
+function removeFirearm() {
+    var remFirearm2 = document.getElementsByClassName('firearm2');
+    var remFirearm3 = document.getElementsByClassName('firearm3');
+    var remFirearm4 = document.getElementsByClassName('firearm4');
+
+    
+    for(var i = 0; i < remFirearm2.length; i++) {
+        remFirearm2[i].style.display = "none";
+    }
+    for(var i = 0; i < remFirearm3.length; i++) {
+        remFirearm3[i].style.display = "none";
+    }
+    for(var i = 0; i < remFirearm4.length; i++) {
+        remFirearm4[i].style.display = "none";
+    }
+}
+
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
@@ -30,41 +55,14 @@ function geocodeAddress(geocoder, resultsMap) {
     });
 }
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function firearmTypes() {
-    document.getElementById("firearmTypes").classList.toggle("show");
-}
-
-function quantityChoice() {
-    document.getElementById("quantity").classList.toggle("show")
-}
-
-function setFirearmType(fireArm) {
-    document.getElementById("firearmTypeBtn").innerHTML = fireArm;
-}
-
-function setQuantity(num) {
-    if (num == 6) {
-        document.getElementById("quantityBtn").innerHTML = "6+";
-    } else {
-        document.getElementById("quantityBtn").innerHTML = num;
-    }
+function setFirearmType(firearmNum, firearmType) {
+    document.getElementById(firearmNum).innerHTML = firearmType;
 }
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+    if (event.target == document.getElementById('loginOverlay')) {
+        loginOverlay.style.display = "none";
     }
-  }
-  if (event.target == document.getElementById('loginOverlay')) {
-      loginOverlay.style.display = "none";
-  }
+    
 } 
