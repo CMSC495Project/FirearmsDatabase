@@ -3,12 +3,21 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.2)
+}
+
+html input, button {
+    background-color: white;
+    border: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 h1, h2 {
     color: white;  
     font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
 }
+
+a {text-decoration: none;}
 
 /* ======== Home Page ======== */
 
@@ -28,11 +37,7 @@ h1, h2 {
 
 #login {float: right;}
 
-a {text-decoration: none;}
-
-#main, #regMain {
-    overflow: hidden;
-    align-content: center;
+#main, .regMain {
     border-style: solid;
     border-width: 10px 0px 10px 0px;
     border-color: white;
@@ -47,104 +52,186 @@ a {text-decoration: none;}
 
 .searchBar {margin-top: 12em;}
 
-.searchBar #zip, #search {height: 3em;}
+#zip {height: 3em;}
 
-.searchBar > input[type=text] {border: none;}
+#search {height: 3.06em;}
+
 
 
 #map {
  border-style: solid; 
  border-color: skyblue;
  border-width: 10px 10px 10px 10px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 /* ======== Registration Page ======== */
 
-#regContent {
+.regMain {
+    height: 90em;
+}
+
+.regContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "regForm tos";
     position: relative;
-    top: 200px;
+    top: 250px;
     width: 80%;
-    max-width: 100em;
+    max-width: 2000px;
     margin: auto;
 }
 
-#regContent label {
-    position: relative;
-    left: -10px;
-    float: left;
-    width: 150px;
+.regForm {
+    display: grid;
+    margin-left: 10%;
+}
+
+.regForm input {padding: 5px;}
+
+.regForm form {
+    grid-template-columns: 200px 200px 40px 200px 50px 10px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "h1 h1 h1 h1 h1 ."
+        "nameLabel fname minitial lname . ."
+        "addressLabel address1 address1 address1 . ."
+        ". address2 address2 address2 . ."
+        ". address3 address3 address3 . ."
+        ". city state zipcode required ."
+        "faLabel fainfo fainfo fainfo fainfo fainfo"
+        "emailLabel email email email reqEmail ."
+        ". submit . clearform . .";
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    width: 100%;
+
+}
+
+.regForm h1 {
+    margin-left: 70px;
+    grid-area: h1;
+    width: 100%;
+    text-align: center;
+}
+
+.regLabels {
+    grid-area: labels;
+    margin-top: 5px;
+    margin-right: 10px;
     text-align: right;
 }
 
-#fName, #mInitial, #lName {
-    width: 20%;
-    max-width: 200px;
+.firearmReg {
+    display: grid;
+    grid-template-columns: 290px 100px 54px; 
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "faType1 quantity1 addFirearm1"
+        "faType2 quantity2 addFirearm2"
+        "faType3 quantity3 addFirearm3"
+        "faType4 quantity4 addFirearm4";
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    margin-top: 20px;
 }
 
-#address1 {
-    width: 450px;
-    margin-top: 5px;
-}
+.firearmReg input {margin-top: 1px;}
 
-#address2, #address3 {
-    position: relative;
-    left: 150px;
-    margin-top: 5px;
-    width: 450px;
-}
-
-#city, #state, #zipcode {
-    position: relative;
-    left: 150px;
-    margin-top: 5px;
-    max-width: 200px;
-}
-
-/* Dropdown Button */
-.dropbtn {
+.firearmReg button {
     background-color: white;
-    color: black;
-    margin-top: 5px;
-    font-size: 16px;
+    margin-top: 1px;
+    padding: 6px;
+    width: 100%;
     border: none;
     cursor: pointer;
 }
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: whitesmoke;
-}
+.firearm2, .firearm3, .firearm4 {display: none;}
 
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    left: -6px;
-    display: inline-block;
-}
+.firearmReg button:hover {background-color: whitesmoke}
 
-/* Dropdown Content */
-.dropdown-content {
+.dropdown {position: relative;}
+
+.dropdown-contents {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-/* Contents after dropdown */
-.dropdown-content > a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+.dropdown-contents a {
     display: block;
+    padding: 8px;
+    text-align-last: center;
+    background-color: white;
+    color: black;
+    text-decoration: none;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-contents a:hover {background-color: whitesmoke}
 
-/* Show the dropdown menu */
-.show {display:block;} 
+.dropdown:hover .dropdown-contents {
+    display: block;
+    background-color: white;
+    cursor: pointer;
+}
+
+#submit:hover, #clearform:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+#submit {
+    grid-area: submit;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 200px;
+    border: none;
+    background-color: white;
+}
+
+#clearform {
+    grid-area: clearform;
+    margin-top: 20px;
+    margin-right: 20px;
+    justify-self: end;
+    width: 200px;
+    border: none;
+    background-color: white;
+}
+
+.tosContainer {
+    background-color: white;
+    border-style: solid;
+    border-color: tomato;
+    border-width: 10px;
+    width: 450px;
+    height: 555px;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.tosContainer h1 {
+    width: 50%;
+    margin: auto;
+    color: black;
+    text-align: center;
+    border-bottom: solid;
+}
+
+#ackBox {
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 30%;
+    transform: scale(2.0);
+}
+
+
 
 /* ======== Footer ======= */
 
@@ -176,48 +263,58 @@ a {text-decoration: none;}
     color: black;
     width: 15em;
     height: 10em;
+    text-align: center;
     background-color: whitesmoke;
+    border-style: solid;
+    border-color: tomato;
+    border-width: 10px;
     box-shadow: 0px 8px 16px 0px darkgrey;
-   
 }
 
 .loginContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 10px;
 }
 
-.loginContainer label, input, button {
-    grid-column: 2/4;
-    margin-top: 5px;
+.loginLabels, .loginInput{grid-column: 2/4;}
+
+.loginInput {
+    border-style: solid;
+    border-color: #f0f3f6;
 }
 
 .loginContainer button {
+    grid-column: 2/4;
+    margin-bottom: 60px;
     background-color: cornflowerblue;
+
     color: white;
-    border: none;
 }
 
 .signupContainer {
     display: grid;
     margin-left: 10px;
     margin-right: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: white;
 }
 
 .signupLabels {
-    grid-column: 1/5;
-    padding-top: 10px
+    grid-column: 2/4;
 }
 
 .signupInput {
-    grid-column: 1/5;
+    grid-column: 2/5;
     margin-bottom: 10px;
     height: 30px;
+    border-style: solid;
+    border-color: #f0f3f6;
 }
 
 .signupContainer p {
-    grid-column: 1/5;
+    grid-column: 1/6;
     border-style: solid;
     border-left: none;
     border-right: none;
@@ -233,21 +330,17 @@ a {text-decoration: none;}
     grid-template-rows: 1fr;
     cursor: pointer;
     height: 4em;
+    line-height: 60px;
     text-align: center;
     color: white;
     background-color: cornflowerblue; 
 }
 
-.bottomButtonsContainer > span {
-    height: 100%;
-    line-height: 4;
-}
-
 .bottomButtonsContainer > button {
     background-color: cornflowerblue;
+    box-shadow: none;
     color: white;
     margin: 0px;
-    border: none;
     cursor: pointer;
 }
 
@@ -270,9 +363,9 @@ a {text-decoration: none;}
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
-    border: 1px solid grey;
+    background-color: white;
+    margin: 10% auto;
+    border: 5px solid cornflowerblue;
     width: 30%; 
     max-width: 500px;
 }
@@ -292,4 +385,3 @@ a {text-decoration: none;}
     from {transform: scale(0)} 
     to {transform: scale(1)}
 }  
-
