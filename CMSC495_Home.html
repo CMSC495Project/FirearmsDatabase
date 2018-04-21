@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Prevent clickjacking -->
+    <meta http-equiv="X-Frame-Options" content="deny"> 
+    <!-- Anti-MIME sniffing -->
+    <meta http-equiv="x-content-type-options" content="nosniff">
+    <!-- Prevent cross-site scripting --> 
+    <meta http-equiv="X-XSS-Protection: 1; mode=block"> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
     <link rel="stylesheet" type="text/css" href="CMSC495_Layout.css">
     <script src="CMSC495_JavaScript.js"></script>
     <title>Firearm Registry</title>
@@ -48,7 +56,9 @@
     </div>
     
     <div class="modal" id="loginOverlay">
-        <form class="modal-content animate" action="/action_page.php">
+
+<	<!-- POST more secure than GET -->
+        <form class="modal-content animate" action="/action_page.php" method="POST"> 
         <div class="imgcontainer" style="width:40%; height: 200px; margin: auto">
             <img src="placeholderRound.png" alt="Avatar" class="avatar" style="width: 100%; padding: 20px;">
         </div>
@@ -56,7 +66,9 @@
                 <label><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" required style="grid-row-start: 2">
                 <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" id="psw" required>
+
+		<!-- Set password autocomplete to "off" -->
+                <input type="password" autocomplete="off" placeholder="Enter Password" id="psw" required>
                 <button type="submit">Login</button>
             </div>
         <div class="container bottomButtonsContainer">
@@ -68,7 +80,9 @@
     </div> 
     
     <div class="modal" id="signupOverlay">
-        <form class="modal-content" action="/action_page.php">
+
+	<!-- POST more secure than GET -->
+        <form class="modal-content" action="/action_page.php" method="POST"> 
         <div class="signupContainer">
             <p><b>Complete the form below to request an account</b></p>
             <label class="signupLabels" for="email"><b>Email</b></label>
@@ -104,3 +118,4 @@
     </div>
 </footer>
 </html>
+
