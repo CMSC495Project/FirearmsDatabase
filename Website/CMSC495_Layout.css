@@ -1,0 +1,615 @@
+html {
+  overflow: visible;
+  background-color: tomato;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2)
+}
+
+html input, button {
+  background-color: white;
+  border: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+h1, h2 {
+  color: white;
+  font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* ======== Home Page ======== */
+
+.navbar {
+  display: block;
+  width: 100%;
+  height: 70px;
+  border-style: solid;
+  border-width: 10px 0px 0px 0px;
+  color: white;
+  background-color: cornflowerblue;
+  font-size: 2em;
+  font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+}
+
+.navbarItem, #loginAccount {
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 8px;
+  color: white;
+  background-color: cornflowerblue;
+}
+
+.navbarItem:hover {
+  height: auto;
+  background-color: tomato;
+  cursor: pointer;
+}
+
+#loginAccount, #myAccount {
+  float: right;
+}
+
+#loginAccount:hover{background-color: tomato}
+
+#myAccount-contents {
+  font-size: 20px;
+}
+
+#myAccount {display: none}
+
+.main, .regMain, .accountMain {
+  overflow: visible;
+  border-style: solid;
+  border-width: 10px 0px 10px 0px;
+  border-color: white;
+  background-color: cornflowerblue;
+  color: white;
+  width: auto;
+}
+
+.main h3 {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.mainContainer {
+  width: 80%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.searchContainer {
+  display: grid;
+  position: relative;
+  width: 300px;
+  height: 3.6em;
+  margin: auto;
+}
+
+#searchZip, #search {
+  height: 3.2em;
+  padding: 10px;
+}
+
+#search:hover {
+  background-color: whitesmoke;
+}
+
+.mapContainer {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  margin: auto;
+  border: 5px solid lightgrey;
+}
+
+
+#searchModal {
+  position: absolute;
+  background-color: rgba(0,0,0,0.0);
+}
+
+.searchResults {
+  display: grid;
+  background-color: white;
+  color: black;
+  margin: auto;
+  border: 5px solid tomato;
+  width: 30%;
+  height: 200px;
+  max-width: 500px;
+  font-size: 20px;
+  box-shadow: 0px 18px 18px 10px rgba(0,0,0,0.2);
+}
+
+.searchResults h {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.searchResults h2 {
+  margin-top: -5px;
+  margin-bottom: 0px;
+  padding: 0px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.searchResults p2 {
+  font-weight: bold;
+}
+
+.searchResults span {
+  margin: auto;
+  width: 150px;
+  text-align: left;
+  font-size: 18px;
+}
+
+
+
+#map {
+  width: 100%;
+  height: 50em;
+  color: black;
+  border-style: solid;
+  border-color: skyblue;
+  border-width: 10px 10px 10px 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* ======== Registration Page ======== */
+
+.regMain {
+				
+  width: auto;
+  height: 90em;
+}
+
+.regContainer {
+  display: grid;
+  grid-template-columns: 600px 600px;
+  grid-template-rows: auto;
+  grid-template-areas: "regForm tos";
+  grid-column-gap: 20%;
+  position: relative;
+  top: 250px;
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.regForm {
+  display: grid;
+  width: 50%;
+}
+
+.regForm input {padding: 5px;}
+
+.regForm form {
+  grid-template-columns: 200px 200px 40px 200px 50px 10px;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "h1 h1 h1 h1 h1 ."
+  "nameLabel fname minitial lname . ."
+  "addressLabel address1 address1 address1 . ."
+  ". address2 address2 address2 . ."
+  ". address3 address3 address3 . ."
+  ". city state zipcode required ."
+  "faLabel fainfo fainfo fainfo fainfo fainfo"
+  "emailLabel email email email reqEmail ."
+  ". submit . clearform . ."
+  " . error error error . . "  ;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  width: 100%;
+
+}
+
+.regForm h1 {
+  margin-left: 70px;
+  grid-area: h1;
+  width: 100%;
+  text-align: center;
+}
+
+.regLabels {
+  grid-area: labels;
+  margin-top: 5px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.firearmReg {
+  display: grid;
+  grid-template-columns: 290px 100px 54px;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "faType1 quantity1 addFirearm1"
+  "faType2 quantity2 addFirearm2"
+  "faType3 quantity3 addFirearm3"
+  "faType4 quantity4 addFirearm4";
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  margin-top: 20px;
+}
+
+.firearmReg input {margin-top: 1px;}
+
+.firearmReg button {
+  background-color: white;
+  margin-top: 1px;
+  padding: 6px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.firearm2, .firearm3, .firearm4 {display: none;}
+
+.firearmReg button:hover {background-color: whitesmoke}
+
+.dropdown {position: relative;}
+
+.dropdown-contents {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-contents a {
+  display: block;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align-last: center;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown-contents a:hover {background-color: whitesmoke}
+
+.dropdown:hover .dropdown-contents {
+  display: block;
+  background-color: white;
+  cursor: pointer;
+}
+
+#gun_email {
+  grid-area: email;
+  margin-top: 20px;
+}
+
+#submit:hover, #clearform:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+#submit {
+  grid-area: submit;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 200px;
+  border: none;
+  background-color: white;
+}
+
+#clearform {
+  grid-area: clearform;
+  margin-top: 20px;
+  margin-right: 20px;
+  justify-self: end;
+  width: 200px;
+  border: none;
+  background-color: white;
+}
+
+#regError {
+  grid-area: error;
+  font-weight: bold;
+  text-align: center
+}
+
+.tosContainer {
+  background-color: white;
+  border-style: solid;
+  border-color: tomato;
+  border-width: 10px;
+  width: 450px;
+  height: 555px;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.tosContainer h1 {
+  width: 50%;
+  margin: auto;
+  color: black;
+  text-align: center;
+  border-bottom: solid;
+}
+
+#ackBox {
+  position: relative;
+  top: 50px;
+  margin: auto;
+  width: 30%;
+  transform: scale(2.0);
+}
+
+/* ======== My Account Page ======== */
+
+.accountMain {
+  width: 100%;
+  height: 90em;
+  background-color: cornflowerblue;
+}
+
+.accountContainer {
+  overflow-y: auto;
+  position: relative;
+  display: grid;
+  margin: 100px auto;
+  width: 80%;
+  max-width: 1400px;
+  height: 60%;
+  background-color: #b1d3ef;
+  border: 10px solid white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.accountContainer table {
+  padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.accountContainer th {
+  color: white;
+  background-color: cornflowerblue;
+  padding: 15px;
+  border-bottom: 2px solid cornflowerblue;
+}
+
+.accountContainer td {
+  padding: 15px;
+  font-weight: lighter;
+}
+
+.accountContainer tr:nth-child(even) {background-color: #e0e9ff}
+
+.accountContainer tr:last-child {border-bottom: 2px solid #e0e9ff}
+
+.accountContainer tr:hover {
+  color: white;
+  background-color: cornflowerblue;
+}
+
+.rem_entries {
+  
+  transform: scale(2.0);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
+}
+
+.rem_entries:hover {cursor: pointer;}
+
+.btnContainer {
+  display: block;
+  position: relative;
+  bottom: 70px;
+  width: 80%;
+  margin: auto;
+}
+
+.btnContainer button {
+  width: 300px;
+  margin:auto;
+}
+
+.btnContainer button:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+#checkAndSubmit {
+  margin: auto;
+  width: 650px;
+}
+
+
+/* ======== Footer ======= */
+
+.footer {
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 85%;
+  max-width: 1400px;
+  height: 10em;
+}
+
+.footer h2 {
+font-size: 1.6em;
+grid-row-start: 2;}
+
+.footer p {
+  margin-top: auto;
+  margin-bottom: 90px;
+  font-size: 1.2em;
+  color: white;
+}
+
+/* ======== Overlays for Login, Signup, About ======== */
+
+#about{
+  margin: 10% auto;
+  font-size: 50px;
+  color: black;
+  width: 15em;
+  height: 10em;
+  text-align: center;
+  background-color: whitesmoke;
+  border-style: solid;
+  border-color: tomato;
+  border-width: 10px;
+  box-shadow: 0px 8px 16px 0px darkgrey;
+}
+
+.loginContainer {
+  display: grid;
+  margin-left: 10px;
+  margin-right: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 20px 30px 20px 30px 40px;
+  grid-row-gap: 10px;
+  height: 200px;
+  background-color: white;
+}
+
+.loginInput {
+  grid-column: 2/5;
+  border-style: solid;
+  border-color: #f0f3f6;
+}
+
+.loginInput:active {
+  background-color: white;
+}
+
+.loginLabel {
+  margin-top: 10px;
+  grid-column: 2/5;
+  width: 200px;
+}
+
+#loginError {
+  position: relative;
+  bottom: 20px;
+  width: auto;
+  font-weight: bold;
+  text-align: center;
+}
+
+.loginContainer > button {
+  grid-column: 2/5;
+  margin-top: 10px;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.signupContainer {
+  display: grid;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.signupLabels {
+    width: 200px;
+    text-align: left;
+
+}
+
+#signupError {
+  width: 90%;
+  margin: auto;
+  border-style: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.signupInput {
+  margin-bottom: 10px;
+  height: 30px;
+  border-style: solid;
+  border-color: #f0f3f6;
+}
+
+.signupContainer p{
+  width: auto;
+  border-style: solid;
+  border-left: none;
+  border-right: none;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.bottomButtonsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  cursor: pointer;
+  height: 4em;
+  line-height: 60px;
+  text-align: center;
+  color: white;
+  background-color: cornflowerblue;
+}
+
+.bottomButtonsContainer > button {
+  background-color: cornflowerblue;
+  box-shadow: none;
+  color: white;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.bottomButtonsContainer > span:hover > button:hover {
+  background-color: tomato;
+}
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  border: 5px solid cornflowerblue;
+  width: 30%;
+  max-width: 500px;
+}
+
+/* Add Zoom Animation for Login and About*/
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
