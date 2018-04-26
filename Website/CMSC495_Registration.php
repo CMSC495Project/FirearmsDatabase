@@ -10,6 +10,12 @@ if(!isset($_SESSION['logged_in'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Prevent clickjacking -->
+  <meta http-equiv="X-Frame-Options" content="deny"> 
+    <!-- Anti-MIME sniffing -->
+  <meta http-equiv="x-content-type-options" content="nosniff">
+    <!-- Prevent cross-site scripting --> 
+  <meta http-equiv="X-XSS-Protection: 1; mode=block"> 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="CMSC495_Layout.css">
   <script src="CMSC495_JavaScript.js" type="text/javascript"></script>
@@ -60,7 +66,7 @@ if(!isset($_SESSION['logged_in'])) {
 					<input type="text" name="address3" id="adr3" placeholder="Address Line 3" style="grid-area: address3">
 					<input type="text" name="city" id="city" placeholder="City" style="grid-area: city">
 					<input type="text" name="state" id="state" placeholder="ST" style="grid-area: state">
-					<input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" style="grid-area: zipcode">
+					<input type="number" name="zipcode" id="zipcode" placeholder="Zipcode" style="grid-area: zipcode" min="0" required>
 					<label style="grid-area: required; font-size: 20px">*</label>
 					<label class="regLabels" style="grid-area: faLabel; margin-top: 25px">Firearm Information:</label>
 					<div class="firearmReg" style="grid-area: fainfo">
@@ -73,7 +79,7 @@ if(!isset($_SESSION['logged_in'])) {
 								<a onclick="setFirearmType('firearm1Btn','Other')">Other</a>
 							</div>
 						</div>
-						<input type="number" id="qty1" name="qty1" placeholder="Quantity" min="0">
+						<input type="number" id="qty1" name="qty1" placeholder="Quantity" min="0" required>
 						<button type="button" title="Add Another Firearm" onclick="addFirearm('firearm2')">+</button>
 
 						<div class="dropdown firearm2" style="grid-area: faType2">
@@ -120,7 +126,8 @@ if(!isset($_SESSION['logged_in'])) {
 						<div style="; height: 15%; width: 100%; background-color: #afceff"></div>
 					<div style="height: 375px; width: 100%; background-color: white">
 						<h1>ToS</h1>
-						<h2 style="color: black; text-align: center">Verbage on how information provided will be stored in a database to be viewed by users.</h2>
+						<h3 style="color: black; text-align: center" id="tosText">
+              By using this form you agree to share your firearm registration information to all users that vist this site and understand that all information submitted, including personally identifiable information, will be archived until you request removal.</h3>
 					</div>
 					<div style="height: 15%; width: 100%; background-color: #afceff"></div>
 					<div id="ackBox">
@@ -138,7 +145,21 @@ if(!isset($_SESSION['logged_in'])) {
 <div class="modal" id="aboutOverlay" onclick="overlayOff('aboutOverlay')">
   <div class="animate" id="about">
     <div class="aboutBox">
-      <p>Some Stuff About Us</p>
+      <div class="bigborder"></div>
+      <div id="aboutText">
+        <h style="font-size: 35px;color:white">About this Project</h><br><br>
+        <p>There exists a gap in the marketplace for a centralized database tool that allows for tracking owners of firearms and especially for collecting and maintaining geographical data for those owners. There are a range of customers who could benefit from such a tool, from government agencies concerned about public safety to firearms manufacturers who want more sophisticated information about their customers.
+        </p>
+
+        <p>This project will develop a flexible, scalable database tool to provide for sophisticated firearm owner tracking. The database will be hosted on an instance of Amazon S3 and will have a website that will show graphically where owners are located geographically according to their registration.
+        </p>
+        
+        </div>
+      <div class="bigborder">
+        <br>
+        <h style="font-size: 27px; margin-top: 30px; color:white">This project was created for educational purposes only
+        </h>
+      </div>
     </div>
   </div>
 </div>
@@ -235,6 +256,7 @@ if(!isset($_SESSION['logged_in'])) {
         if (element == "gunregForm" && !loggedIn) {
             event.preventDefault();
             $("#regError").text("You must be logged in to register a firearm.");
+          
         } else {
             event.preventDefault();
             var fname = $("#fName").val();
@@ -274,6 +296,7 @@ if(!isset($_SESSION['logged_in'])) {
               qty4: qty4
             });
           $("#gunregForm input").css("border-style", "none");
+          $("#gunregForm a").css("border-style", "none");
         }
     });
   });
