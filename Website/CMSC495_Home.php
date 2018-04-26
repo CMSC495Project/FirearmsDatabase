@@ -11,6 +11,12 @@ if(!isset($_SESSION['logged_in'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <!-- Prevent clickjacking -->
+    <meta http-equiv="X-Frame-Options" content="deny"> 
+      <!-- Anti-MIME sniffing -->
+    <meta http-equiv="x-content-type-options" content="nosniff">
+      <!-- Prevent cross-site scripting --> 
+    <meta http-equiv="X-XSS-Protection: 1; mode=block"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="CMSC495_Layout.css">
     <script src="CMSC495_JavaScript.js"></script>
@@ -70,7 +76,29 @@ if(!isset($_SESSION['logged_in'])) {
 <div class="modal" id="aboutOverlay" onclick="overlayOff('aboutOverlay')">
   <div class="animate" id="about">
     <div class="aboutBox">
-      <p>Some Stuff About Us</p>
+      <div class="bigborder"></div>
+      <div id="aboutText">
+        <h style="font-size: 35px;color:white">About this Project</h><br><br>
+        <p>There exists a gap in the marketplace for a centralized database tool 
+          that allows for tracking owners of firearms and especially for collecting
+          and maintaining geographical data for those owners. There are a range of
+          customers who could benefit from such a tool, from government agencies
+          concerned about public safety to firearms manufacturers who want more
+          sophisticated information about their customers.
+        </p>
+
+        <p>This project will develop a flexible, scalable database tool to provide for
+          sophisticated firearm owner tracking. The database will be hosted on an
+          instance of Amazon S3 and will have a website that will show graphically
+          where owners are located geographically according to their registration.
+        </p>
+        
+        </div>
+      <div class="bigborder">
+        <br>
+        <h style="font-size: 27px; margin-top: 30px; color:white">This project was created for educational purposes only
+        </h>
+      </div>
     </div>
   </div>
 </div>
