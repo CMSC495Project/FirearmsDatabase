@@ -343,6 +343,14 @@ a {
   border-bottom: solid;
 }
 
+#tosText {
+  width: 95%;
+  margin: 20px auto;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+}
+
 #ackBox {
   position: relative;
   top: 50px;
@@ -457,18 +465,31 @@ grid-row-start: 2;}
 
 /* ======== Overlays for Login, Signup, About ======== */
 
-#about{
+
+.aboutBox {
+  display: grid;
   margin: 10% auto;
-  font-size: 50px;
-  color: black;
-  width: 15em;
-  height: 10em;
-  text-align: center;
   background-color: whitesmoke;
   border-style: solid;
   border-color: tomato;
   border-width: 10px;
   box-shadow: 0px 8px 16px 0px darkgrey;
+  font-size: 20px;
+  color: black;
+  width: 800px;
+  height: 600px;
+  text-align: center;
+}
+
+#aboutText {
+  position: relative;
+  top: -80px;
+  margin-bottom: -60px
+}
+
+.bigborder {
+  background-color: cornflowerblue;
+  height: 100px;
 }
 
 .loginContainer {
@@ -506,7 +527,7 @@ grid-row-start: 2;}
   text-align: center;
 }
 
-.loginContainer > button {
+.loginContainer button {
   grid-column: 2/5;
   margin-top: 10px;
   background-color: cornflowerblue;
@@ -571,7 +592,11 @@ grid-row-start: 2;}
   cursor: pointer;
 }
 
-.bottomButtonsContainer > span:hover > button:hover {
+.bottomButtonsContainer span:hover {
+  background-color: tomato;
+}
+
+.bottomButtonsContainer button:hover {
   background-color: tomato;
 }
 
@@ -613,3 +638,9 @@ grid-row-start: 2;}
   to {transform: scale(1)}
 }
 
+.bottomButtonsContainer a:hover{background-color: tomato}
+
+.loginContainer button:hover{
+  background-color: tomato;
+  cursor: pointer;
+}
