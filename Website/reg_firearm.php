@@ -30,7 +30,6 @@
 		$query_zip = "SELECT * FROM state_zip WHERE zip='$user_zipcode'";
 		$valid_entry = true;
 		$error_message = "";
-		$firearm_array = array("$fa1"=>"$qty1","$fa2"=>"$qty2","$fa3"=>"$qty3","$fa4"=>"$qty4");
 		$reg_array = array("$fa1","$qty1","$fa2","$qty2","$fa3","$qty3","$fa4","$qty4");
 		
 		if($logged_in == true) {
@@ -97,8 +96,8 @@
 							$mysqli->query($query);
 						}
 						$i++;
-					}
 			}
+		}
 			
 			
 		
