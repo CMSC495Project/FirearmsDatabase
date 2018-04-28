@@ -2,9 +2,12 @@
 session_start();
 require "database_connect.php";
 
-$user_email = $_SESSION['email'];
-$query = "SELECT * FROM registered_firearms WHERE registrant_email='$user_email'";
-$results = $mysqli->query($query);
+	$user_email = $_SESSION['email'];
+	$stmt=$mysqli->prepare("SELECT * FROM registered_firearms WHERE registrant_email=?");
+	$stmt->bind_param('s', $user_email);
+	$stmt->execute();
+  $stmt_result = $stmt->get_result();
+	
 
 ?>
 
@@ -63,7 +66,7 @@ $results = $mysqli->query($query);
             <th>Remove Entry</th>
           <?php
             $entry_num = 0;
-            while($row = $results->fetch_assoc()){
+            while($row = $stmt_result->fetch_assoc()){
               $entry_num = "\"" . $row['registered_arms_id'] . "\"";
               echo "<tr>";
               echo "<td>" . $row['registered_arms_id'] . "</td>";
@@ -93,18 +96,10 @@ $results = $mysqli->query($query);
       <div class="bigborder"></div>
       <div id="aboutText">
         <h style="font-size: 35px;color:white">About this Project</h><br><br>
-        <p>There exists a gap in the marketplace for a centralized database tool
-          that allows for tracking owners of firearms and especially for collecting
-          and maintaining geographical data for those owners. There are a range of
-          customers who could benefit from such a tool, from government agencies 
-          concerned about public safety to firearms manufacturers who want more 
-          sophisticated information about their customers.
+        <p>There exists a gap in the marketplace for a centralized database tool that allows for tracking owners of firearms and especially for collecting and maintaining geographical data for those owners. There are a range of customers who could benefit from such a tool, from government agencies concerned about public safety to firearms manufacturers who want more sophisticated information about their customers.
         </p>
 
-        <p>This project will develop a flexible, scalable database tool to provide for
-          sophisticated firearm owner tracking. The database will be hosted on an instance
-          of Amazon S3 and will have a website that will show graphically where owners are
-          located geographically according to their registration.
+        <p>This project will develop a flexible, scalable database tool to provide for sophisticated firearm owner tracking. The database will be hosted on an instance of Amazon S3 and will have a website that will show graphically where owners are located geographically according to their registration.
         </p>
         
         </div>
