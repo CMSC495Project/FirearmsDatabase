@@ -1,5 +1,7 @@
 <?php
 session_start();
+header("x-content-type-options: nosniff"); // protects against MIME sniffing and XSS
+header("x-frame-options: deny"); //protects against click-jacking
 if(!isset($_SESSION['logged_in'])) {
   $_SESSION['logged_in'] = false;
 }
