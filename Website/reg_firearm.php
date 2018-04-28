@@ -67,33 +67,34 @@
 		
 		if ($valid_entry == true) {
 			echo "Registration Submitted";
-			$query = "INSERT INTO registrants (
-				first_name, 
-				middle_initial, 
-				last_name,  
-				address_line1, 
-				address_line2, 
-				address_line3, 
-				city, 
-				state, 
-				zipcode,
-				registrant_email) 
-				VALUES('$user_fname', '$user_mi', '$user_lname', '$user_address1', '$user_address2',
-				'$user_address3', '$user_city', '$user_state', '$user_zipcode', '$user_email')";
+			$stmt= $mysqli->prepare("INSERT INTO registrants (
+						first_name, 
+						middle_initial, 
+						last_name,  
+						address_line1, 
+						address_line2, 
+						address_line3, 
+						city, 
+						state, 
+						zipcode,
+						registrant_email) 
+						VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			$stmt->bind_param('ssssssssss', $user_fname, $user_mi, $user_lname, $user_address1, $user_address2, $user_address3, $user_city,  $user_state, $user_zipcode, $user_email);
+			$stmt->execute();
+
 			
-			$mysqli->query($query);
 			for($i = 0; $i < count($reg_array) - 1; ++$i) {
 						if($reg_array[$i] != "Firearm Type" && $reg_array[$i+1] > 0) {
 							$fa = $reg_array[$i];
 							$fa_qty = $reg_array[$i+1];
-							$query = "INSERT INTO registered_firearms (
-							register_zip,
-							firearm_category,
-							quantity,
-							registrant_email
-							)
-							VALUES('$user_zipcode','$fa','$fa_qty','$user_email')";
-							$mysqli->query($query);
+							$query_stmt = $mysqli->prepare("INSERT INTO registered_firearms (
+								register_zip,
+								firearm_category,
+								quantity,
+								registrant_email)
+								VALUES(?, ?, ?, ?)");
+							$query_stmt->bind_param('ssss', $user_zipcode, $fa, $fa_qty, $user_email);
+							$query_stmt->execute();
 						}
 						$i++;
 			}
@@ -134,3 +135,4 @@
 		</script>
 	</body>
 </html>
+
