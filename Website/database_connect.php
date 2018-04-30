@@ -2,7 +2,7 @@
     <body>
     <?php
 
-        $host = "guntracker.coowhgohnbdb.us-west-2.rds.amazonaws.com";
+        $host = "guntracker.coowhgohnbdb.us-west-2.rds.amazonaws.com:3306";
         $user = "root";
         $db_pass = "password12";
         $db = "guntracker";
